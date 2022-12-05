@@ -29,7 +29,7 @@ public class QuestionArray {
         BufferedReader reader;
         //Read a word from the file and save it to the arraylist
         try {
-            java.net.URL url = getClass().getResource("Words.txt");
+            java.net.URL url = getClass().getResource("Questions.txt");
             questionsFileReader = new FileReader(url.getPath());
             reader= new BufferedReader(questionsFileReader);
             //Read the questions
