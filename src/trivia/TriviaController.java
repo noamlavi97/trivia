@@ -26,7 +26,7 @@ public class TriviaController {
     private TextFlow questionTextFlow;
 
     @FXML
-    private Button exitButton;
+    private Button endGameButton;
 
     @FXML
     private Button newGameButton;
@@ -55,8 +55,8 @@ public class TriviaController {
 
     //Close program
     @FXML
-    void exitProgram(ActionEvent event) {
-        System.exit(0);
+    void endGame(ActionEvent event) {
+        game.gameOver(questionTextFlow);
     }
 
     // Start a new game

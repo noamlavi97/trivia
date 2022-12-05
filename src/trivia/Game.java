@@ -23,7 +23,7 @@ public class Game {
         currentScore = 0;
         currentQuestion = 0;
         this.currentScoreTextFlow=currentScoreTextFlow;
-        printCurrentScore();
+        printScoreAndAnswer("");
         this.questionTextFlow= questionTextFlow;
         this.buttonA=buttonA;
         this.buttonB=buttonB;
@@ -41,11 +41,12 @@ public class Game {
     public void checkAnswer(int answerNum) {
         if(qArray.checkAnswer(currentQuestion, answerNum)) {
             currentScore += CORRECT_ANSWER_SCORE;
+            printScoreAndAnswer("Your answer was correct - the next question is");
         }
         else {
             currentScore += INCORRECT_ANSWER_SCORE;
+            printScoreAndAnswer("Your answer was incorrect - the next question is");
         }
-        printCurrentScore();
         //If this is the last question (-1 because count starts from 0)
         if(currentQuestion == NUM_OF_QUESTIONS-1) {
             gameOver(questionTextFlow);
@@ -54,12 +55,13 @@ public class Game {
         else {
             currentQuestion++;
             qArray.printQuestion(currentQuestion, questionTextFlow, buttonA, buttonB, buttonC, buttonD);
+            
         }
     }
 
     //Print the current score
-    public void printCurrentScore () {
-        Text score=new Text("The current score is: "+Integer.toString(this.currentScore));
+    public void printScoreAndAnswer (String result) {
+        Text score=new Text("The current score is: "+Integer.toString(this.currentScore)+"\n"+result);
         score.setFill(Color.PURPLE);
         score.setFont(Font.font("Helvetica", FontPosture.ITALIC, 25));
         //if a word already exists
@@ -88,6 +90,9 @@ public class Game {
         this.buttonD.setDisable(true);
         //Restart the count
         currentQuestion=0;
+        //Print message
+        printScoreAndAnswer("This is your final result");
+
     }
 
 }

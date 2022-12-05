@@ -1,25 +1,25 @@
-QuestionA
-A
-B
-C
-D
-QuestionB
-A
-B
-C
-D
-QuestionC
-A
-B
-C
-D
-QuestionD
-A
-B
-C
-D
-QuestionE
-A
-B
-C
-D
+Who was elected President of the United States in 2017?
+Donald Trump
+Barack Obama
+George H. W. Bush
+George W. Bush
+Saudi Arabia is the biggest producer of?
+Oil
+Coal
+Coffee
+Bitcoin machines
+What is the currency of Pakistan?
+Rupee
+Pound
+Riyal
+Forint
+What is the average weight of the human brain?
+4 kilos
+14 kilos
+14 grams
+15 kilos
+Which is the closest planet to earth?
+Mercuary
+Mars
+Saturn
+The sun

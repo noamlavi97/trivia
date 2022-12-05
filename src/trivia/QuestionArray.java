@@ -25,12 +25,13 @@ public class QuestionArray {
         Question q;
         String [] answers = new String [NUM_OF_ANSWERS];
         String question="";
-        FileReader wordsFileReader;
+        FileReader questionsFileReader;
         BufferedReader reader;
         //Read a word from the file and save it to the arraylist
         try {
-            wordsFileReader = new FileReader("src\\trivia\\Questions.txt");
-            reader= new BufferedReader(wordsFileReader);
+            java.net.URL url = getClass().getResource("Words.txt");
+            questionsFileReader = new FileReader(url.getPath());
+            reader= new BufferedReader(questionsFileReader);
             //Read the questions
             for (int i = 0; i < NUM_OF_QUESTIONS; i++) {
                 question = reader.readLine();
@@ -42,8 +43,8 @@ public class QuestionArray {
             }
         } catch (IOException e) {
             e.printStackTrace();
-            Collections.shuffle(qArray);
         }
+        Collections.shuffle(qArray);
     }
 
     //Check the current guess
