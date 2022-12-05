@@ -4,19 +4,23 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
+
+import javafx.scene.control.Button;
+import javafx.scene.text.TextFlow;
 
 public class QuestionArray {
     
     //Class variables
-    private ArrayList<Question> questionsArray;
+    private ArrayList<Question> qArray;
     private final int NUM_OF_QUESTIONS = 5, NUM_OF_ANSWERS=4;
 
     //Constructor
     public QuestionArray() {
-        questionsArray = new ArrayList<Question>();
+        qArray = new ArrayList<Question>();
     }
 
-    //This method generates the question arraylist
+    //This method generates the question arraylist abd shuffles it
     public void readQuestionFromFile() {
         Question q;
         String [] answers = new String [NUM_OF_ANSWERS];
@@ -34,16 +38,22 @@ public class QuestionArray {
                     answers[j] = reader.readLine();
                 }
                 q = new Question(question, answers);
-                questionsArray.add(q);
+                qArray.add(q);
             }
         } catch (IOException e) {
             e.printStackTrace();
+            Collections.shuffle(qArray);
         }
     }
 
     //Check the current guess
-    public void checkAnswer(int question, int answers) {
+    public Boolean checkAnswer(int questionNum, int answerNum) {
+        return (qArray.get(questionNum).getCorrectAnswerIndex() == answerNum);      
+    }
 
-        System.out.println("Current Guess: " + currentScore);
+    //Print question
+    public void printQuestion(int questionNum, TextFlow questionTextFlow, Button buttonA, Button buttonB, Button buttonC, Button buttonD) {
+        qArray.get(questionNum).printQuestionToButton(buttonA, buttonB, buttonC, buttonD);
+        qArray.get(questionNum).printQuestionToTextBox(questionTextFlow);
     }
 }
